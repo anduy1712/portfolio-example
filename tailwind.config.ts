@@ -3,7 +3,6 @@ import forms from "@tailwindcss/forms";
 import containerQueries from "@tailwindcss/container-queries";
 
 const config = {
-  darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
