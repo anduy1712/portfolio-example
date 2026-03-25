@@ -1,3 +1,6 @@
+import { ExternalLink, Link2, Zap } from "lucide-react";
+import { JSX } from "react";
+
 function ProjectCard({
   badge,
   title,
@@ -17,8 +20,14 @@ function ProjectCard({
   linkLabel: string;
   imgSrc: string;
   imgAlt: string;
-  rightIcon: "open_in_new" | "bolt" | "link";
+  rightIcon: string;
 }) {
+  const IconMap: Record<string, JSX.Element> = {
+    open_in_new: <ExternalLink width={14} height={14} className="material-symbols-outlined" />,
+    bolt: <Zap width={14} height={14} className="material-symbols-outlined" />,
+    link: <Link2 width={14} height={14} className="material-symbols-outlined" />,
+  };
+
   return (
     <div className="group bg-surface-container-low rounded-xl overflow-hidden shadow-none border border-white/5 hover:translate-y-[-8px] transition-all duration-300">
       <div className="aspect-video bg-slate-800 relative overflow-hidden">
@@ -53,14 +62,58 @@ function ProjectCard({
           href={href}
         >
           {linkLabel}
-          <span className="material-symbols-outlined text-sm" data-icon={rightIcon}>
-            {rightIcon}
-          </span>
+          {IconMap[rightIcon]}
         </a>
       </div>
     </div>
   );
 }
+
+const PROJECTS = [
+  {
+    id: 1,
+    title: "Nebula Quest",
+    badge: "UNITY ENGINE",
+    description:
+      "A 2D sci-fi RPG built with Unity. Explore procedurally generated galaxies with tactical turn-based combat.",
+    tags: ["C#", "Unity"],
+    href: "https://github.com/alexr/nebula",
+    linkLabel: "GITHUB.COM/NEBULA",
+    imgSrc:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuArXpRZSCWiMb5lD6ZK4sgGqYNig3Pj0k5emhwj7egDAr7hjqqzxcYwPHV_adAv_CBA3rpzhV139u8KsSOHsyRkYpG70raSGhum9ow-U7F4_dLgNnpwUCggO5nU0VhZJjzTknI7lNJ2ZOV07GDxcGyfp6ggeSvwa8Stb7i6LJA9LhJdOkU2HEysL-1eJaSZ4xVpBGL28hBlet2LmL7WlLaQD_R6UHDSEND4Ma1hZ2skNsZ-69XM1_zQvAwL92hFyx730eLZLJEMewQ",
+    imgAlt: "Sci-fi nebula landscape with futuristic spacecraft",
+    rightIcon: "open_in_new",
+  },
+  {
+    id: 2,
+    title: "WEB GL",
+    badge: "UNITY ENGINE",
+
+    description:
+      "A 2D sci-fi RPG built with Unity. Explore procedurally generated galaxies with tactical turn-based combat.",
+    tags: ["C#", "Unity"],
+    href: "https://github.com/alexr/nebula",
+    linkLabel: "GITHUB.COM/NEBULA",
+    imgSrc:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB7s-t2rjKeWrtVnZY8jLPobJeDtY0VB6w5v3HcwFxDZbfmH8vqW9QDN7aSSFaRYYFT0VrXnu3YsFJHAR1pGWM7UMSKG6XDeEGvSmunWos8ac2bIoeIAdvUVRLETZSrbI8t_n5mJQz-ULjHH7qc-AsLVqFjTyKvRsv0UHia9pf071B9vOQRx7IKjot3Hw-HMb3wH8d3yJklvrzW2DOl0Mh0QFNOC_k8opSKtcy94VnEV5k1Imb0usUMG3TV2IZTvHGkZ_TS4hsE31c",
+    imgAlt: "Sci-fi nebula landscape with futuristic spacecraft",
+    rightIcon: "bolt",
+  },
+  {
+    id: 3,
+    title: "Hexagon Siege",
+    badge: "PW",
+    description:
+      "A 2D sci-fi RPG built with Unity. Explore procedurally generated galaxies with tactical turn-based combat.",
+    tags: ["Next.js", "Three.js"],
+    href: "https://github.com/alexr/nebula",
+    linkLabel: "GITHUB.COM/NEBULA",
+    imgSrc:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDT3K6PgIuz-rxLm9sxHJWi2S1FTlvH0WPF0Cm7WQ91L3UshgVHTozjfOfnZ6D0ClQ_bMIvCBS-B22WCEcYNg2kHUY59kUjg-D1j4Bb6McnT2bio_9RfX5NoegnHn8faECxklQRkQNXyL6AapeWMdji68mucQenbDU-lWutNfP2fj97odga9m-r03qsMoPu5H55y-UlMxEtJcwzHzeskGCOqUNPrgk_XNmP6SIgWB76XXuaCU9V1KfKZLUIOIbcR-xXsnwSCdhBMa8",
+    imgAlt: "Sci-fi nebula landscape with futuristic spacecraft",
+    rightIcon: "link",
+  },
+];
 
 export default function ProjectsSection() {
   return (
@@ -71,45 +124,28 @@ export default function ProjectsSection() {
             <span className="text-primary font-label text-xs uppercase tracking-widest mb-2 block">Case Studies</span>
             <h2 className="font-headline text-5xl font-bold text-on-surface">Selected Works</h2>
           </div>
-          <span className="hidden md:block text-outline font-label text-sm uppercase">03 / PROJECTS_ACTIVE</span>
+          <span className="hidden md:block text-outline font-label text-sm uppercase">
+            0{PROJECTS.length} / PROJECTS_ACTIVE
+          </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ProjectCard
-            badge="UNITY ENGINE"
-            title="Nebula Quest"
-            description="A 2D sci-fi RPG built with Unity. Explore procedurally generated galaxies with tactical turn-based combat."
-            tags={["C#", "Unity"]}
-            href="https://github.com/alexr/nebula"
-            linkLabel="GITHUB.COM/NEBULA"
-            imgSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuArXpRZSCWiMb5lD6ZK4sgGqYNig3Pj0k5emhwj7egDAr7hjqqzxcYwPHV_adAv_CBA3rpzhV139u8KsSOHsyRkYpG70raSGhum9ow-U7F4_dLgNnpwUCggO5nU0VhZJjzTknI7lNJ2ZOV07GDxcGyfp6ggeSvwa8Stb7i6LJA9LhJdOkU2HEysL-1eJaSZ4xVpBGL28hBlet2LmL7WlLaQD_R6UHDSEND4Ma1hZ2skNsZ-69XM1_zQvAwL92hFyx730eLZLJEMewQ"
-            imgAlt="Sci-fi nebula landscape with futuristic spacecraft"
-            rightIcon="open_in_new"
-          />
-
-          <ProjectCard
-            badge="WEB GL"
-            title="Cyber-Pulse"
-            description="Fast-paced rhythm game pushing the boundaries of WebGL performance and audio synchronization."
-            tags={["Next.js", "Three.js"]}
-            href="https://cyber-pulse.dev"
-            linkLabel="CYBER-PULSE.DEV"
-            imgSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuB7s-t2rjKeWrtVnZY8jLPobJeDtY0VB6w5v3HcwFxDZbfmH8vqW9QDN7aSSFaRYYFT0VrXnu3YsFJHAR1pGWM7UMSKG6XDeEGvSmunWos8ac2bIoeIAdvUVRLETZSrbI8t_n5mJQz-ULjHH7qc-AsLVqFjTyKvRsv0UHia9pf071B9vOQRx7IKjot3Hw-HMb3wH8d3yJklvrzW2DOl0Mh0QFNOC_k8opSKtcy94VnEV5k1Imb0usUMG3TV2IZTvHGkZ_TS4hsE31c"
-            imgAlt="Neon grid rhythm game interface abstract"
-            rightIcon="bolt"
-          />
-
-          <ProjectCard
-            badge="PWA"
-            title="Hexagon Siege"
-            description="Strategic board game featuring complex state management and real-time multiplayer capabilities."
-            tags={["React", "TypeScript"]}
-            href="https://hex-siege.app"
-            linkLabel="HEX-SIEGE.APP"
-            imgSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuDT3K6PgIuz-rxLm9sxHJWi2S1FTlvH0WPF0Cm7WQ91L3UshgVHTozjfOfnZ6D0ClQ_bMIvCBS-B22WCEcYNg2kHUY59kUjg-D1j4Bb6McnT2bio_9RfX5NoegnHn8faECxklQRkQNXyL6AapeWMdji68mucQenbDU-lWutNfP2fj97odga9m-r03qsMoPu5H55y-UlMxEtJcwzHzeskGCOqUNPrgk_XNmP6SIgWB76XXuaCU9V1KfKZLUIOIbcR-xXsnwSCdhBMa8"
-            imgAlt="Minimalist hexagon board game layout"
-            rightIcon="link"
-          />
+          {PROJECTS.map((project) => {
+            return (
+              <ProjectCard
+                key={project.id}
+                badge={project.badge}
+                title={project.title}
+                description={project.description}
+                tags={project.tags}
+                href={project.href}
+                linkLabel={project.linkLabel}
+                imgSrc={project.imgSrc}
+                imgAlt={project.imgAlt}
+                rightIcon={project.rightIcon}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

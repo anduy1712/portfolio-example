@@ -1,3 +1,6 @@
+import { Gamepad, MoveRight, SquareTerminal } from "lucide-react";
+import Image from "next/image";
+
 export default function HeroSection() {
   return (
     <section className="relative min-h-[921px] flex flex-col justify-center px-8 max-w-7xl mx-auto overflow-hidden">
@@ -13,14 +16,12 @@ export default function HeroSection() {
           <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tighter leading-[0.9] text-on-surface mb-6">
             Game Developer
             <br />
-            &amp;{' '}
-            <span className="kinetic-text">UX Engineer</span>
+            &amp; <span className="kinetic-text">UX Engineer</span>
           </h1>
 
           <p className="text-on-surface-variant max-w-xl text-lg md:text-xl leading-relaxed mb-10">
-            Crafting immersive digital worlds with code and creative vision. I
-            bridge the gap between complex mechanics and intuitive human
-            interaction.
+            Crafting immersive digital worlds with code and creative vision. I bridge the gap between complex mechanics
+            and intuitive human interaction.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -29,9 +30,7 @@ export default function HeroSection() {
               href="#projects"
             >
               View Projects
-              <span className="material-symbols-outlined text-sm" data-icon="arrow_forward">
-                arrow_forward
-              </span>
+              <MoveRight className="material-symbols-outlined text-sm" />
             </a>
 
             <a
@@ -49,27 +48,22 @@ export default function HeroSection() {
             <div className="absolute inset-4 border border-primary/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
 
             <div className="absolute inset-8 rounded-full bg-surface-container-low border border-white/5 flex items-center justify-center overflow-hidden shadow-2xl">
-              <span
+              {/* <span
                 className="material-symbols-outlined text-primary/40 text-[160px]"
                 style={{ fontVariationSettings: "'wght' 100" }}
               >
                 account_circle
-              </span>
+              </span> */}
+              <Image src="/avatar.jpeg" width={800} height={800} alt="avatar" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
             </div>
 
             <div className="absolute -bottom-2 -right-2 w-24 h-24 bg-surface-container-high rounded-xl border border-white/10 flex items-center justify-center shadow-lg transform rotate-12">
-              <span
-                className="material-symbols-outlined text-primary text-4xl"
-                data-icon="terminal"
-              >
-                terminal
-              </span>
+              <Gamepad className="material-symbols-outlined text-primary" width={36} height={36} />
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-

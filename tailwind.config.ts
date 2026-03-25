@@ -60,9 +60,9 @@ const config = {
         "secondary-fixed-dim": "#bfc8da",
       },
       fontFamily: {
-        headline: ["Space Grotesk"],
-        body: ["Inter"],
-        label: ["Inter"],
+        headline: "var(--font-grotesk)",
+        body: "var(--font-inter)",
+        label: "var(--font-inter)",
       },
       borderRadius: {
         DEFAULT: "0.125rem",

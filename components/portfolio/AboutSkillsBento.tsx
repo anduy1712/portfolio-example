@@ -1,33 +1,25 @@
+import { Box } from "lucide-react";
+
 export default function AboutSkillsBento() {
   return (
     <section className="py-24 px-8 max-w-7xl mx-auto" id="about">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
         <div className="md:col-span-8 bg-surface-container-low p-10 rounded-xl relative overflow-hidden group border border-white/5">
-          <span className="text-primary font-label text-xs uppercase tracking-widest mb-4 block">
-            Core Philosophy
-          </span>
+          <span className="text-primary font-label text-xs uppercase tracking-widest mb-4 block">Core Philosophy</span>
 
           <h2 className="font-headline text-4xl font-bold mb-6 text-on-surface">
-            Interactive Storytelling via{' '}
-            <span className="italic text-primary">High-Performance</span>{' '}
-            Engineering
+            Interactive Storytelling via <span className="italic text-primary">High-Performance</span> Engineering
           </h2>
 
           <p className="text-on-surface-variant text-lg leading-relaxed max-w-3xl">
-            I blend high-performance engineering with interactive storytelling to
-            create unique gaming experiences. My approach treats every line of
-            code as a brushstroke in a larger digital canvas, ensuring that
-            every frame served is as meaningful as it is functional.
+            I blend high-performance engineering with interactive storytelling to create unique gaming experiences. My
+            approach treats every line of code as a brushstroke in a larger digital canvas, ensuring that every frame
+            served is as meaningful as it is functional.
           </p>
 
           <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-            <span
-              className="material-symbols-outlined text-8xl"
-              data-icon="deployed_code"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              deployed_code
-            </span>
+            {/* <span style={{ fontVariationSettings: "'FILL' 1" }}>deployed_code</span> */}
+            <Box width={96} height={96} className="material-symbols-outlined text-8xl" />
           </div>
         </div>
 
@@ -36,12 +28,8 @@ export default function AboutSkillsBento() {
           id="skills"
         >
           <div>
-            <span className="text-primary font-label text-xs uppercase tracking-widest mb-4 block">
-              Tech Stack
-            </span>
-            <h3 className="font-headline text-2xl font-bold mb-8 text-on-surface">
-              System Architecture
-            </h3>
+            <span className="text-primary font-label text-xs uppercase tracking-widest mb-4 block">Tech Stack</span>
+            <h3 className="font-headline text-2xl font-bold mb-8 text-on-surface">System Architecture</h3>
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -73,6 +61,5 @@ export default function AboutSkillsBento() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

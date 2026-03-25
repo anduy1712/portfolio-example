@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
 
 type Theme = "light" | "dark";
 
@@ -66,7 +67,7 @@ export default function TopAppBar() {
             type="button"
             onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
           >
-            {isDark ? "light_mode" : "dark_mode"}
+            {isDark ? <Sun /> : <Moon />}
           </button>
         </div>
       </div>

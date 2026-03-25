@@ -1,6 +1,11 @@
 "use client";
 
+import { useForm, ValidationError } from "@formspree/react";
+import { Mail, MapPin, Send } from "lucide-react";
+
 export default function ContactSection() {
+  const [state, handleSubmit] = useForm("mwvwerae");
+
   return (
     <section className="py-32 px-8 max-w-7xl mx-auto" id="contact">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
@@ -20,9 +25,7 @@ export default function ContactSection() {
           <div className="space-y-6">
             <div className="flex items-center gap-4 group">
               <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                <span className="material-symbols-outlined" data-icon="mail">
-                  mail
-                </span>
+                <Mail className="material-symbols-outlined" />
               </div>
               <div>
                 <div className="text-[10px] font-bold text-outline uppercase tracking-widest">Protocol: Email</div>
@@ -32,9 +35,7 @@ export default function ContactSection() {
 
             <div className="flex items-center gap-4 group">
               <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                <span className="material-symbols-outlined" data-icon="location_on">
-                  location_on
-                </span>
+                <MapPin className="material-symbols-outlined" />
               </div>
               <div>
                 <div className="text-[10px] font-bold text-outline uppercase tracking-widest">Zone: Remote</div>
@@ -45,12 +46,7 @@ export default function ContactSection() {
         </div>
 
         <div className="bg-surface-container-low p-10 rounded-xl border border-white/5">
-          <form
-            className="space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label className="text-[10px] font-bold text-outline uppercase tracking-widest px-2">
                 Identification / Name
@@ -58,7 +54,10 @@ export default function ContactSection() {
               <input
                 className="w-full bg-surface-container-lowest border-0 rounded-sm focus:ring-0 focus:border-b-2 focus:border-primary transition-all p-4 text-on-surface placeholder-outline"
                 placeholder="John Doe"
+                id="name"
+                name="name"
                 type="text"
+                required
               />
             </div>
 
@@ -69,8 +68,12 @@ export default function ContactSection() {
               <input
                 className="w-full bg-surface-container-lowest border-0 rounded-sm focus:ring-0 focus:border-b-2 focus:border-primary transition-all p-4 text-on-surface placeholder-outline"
                 placeholder="john@example.com"
+                id="email"
                 type="email"
+                name="email"
+                required
               />
+              <ValidationError prefix="Email" field="email" errors={state.errors} />
             </div>
 
             <div className="space-y-2">
@@ -80,18 +83,21 @@ export default function ContactSection() {
               <textarea
                 className="w-full bg-surface-container-lowest border-0 rounded-sm focus:ring-0 focus:border-b-2 focus:border-primary transition-all p-4 text-on-surface resize-none placeholder-outline"
                 placeholder="Your transmission here..."
+                id="message"
+                name="message"
                 rows={4}
+                required
               />
+              <ValidationError prefix="Message" field="message" errors={state.errors} />
             </div>
 
             <button
               className="w-full py-4 kinetic-gradient text-on-primary font-bold rounded-md hover:scale-[0.98] transition-transform flex items-center justify-center gap-2"
               type="submit"
+              disabled={state.submitting}
             >
               TRANSMIT MESSAGE
-              <span className="material-symbols-outlined text-sm" data-icon="send">
-                send
-              </span>
+              <Send className="material-symbols-outlined" width={14} height={14} />
             </button>
           </form>
         </div>
