@@ -2,9 +2,18 @@
 
 import { useForm, ValidationError } from "@formspree/react";
 import { Mail, MapPin, Send } from "lucide-react";
+import { SubmitEvent } from "react";
+import { toast } from "sonner";
 
 export default function ContactSection() {
   const [state, handleSubmit] = useForm("mwvwerae");
+
+  const handleSubmitWrapper = (e: SubmitEvent<HTMLFormElement>) => {
+    handleSubmit(e);
+    toast.success("Thanks! Your message has been sent 🚀", {
+      position: "top-right",
+    });
+  };
 
   return (
     <section className="py-32 px-8 max-w-7xl mx-auto" id="contact">
@@ -46,7 +55,7 @@ export default function ContactSection() {
         </div>
 
         <div className="bg-surface-container-low p-10 rounded-xl border border-white/5">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6" onSubmit={handleSubmitWrapper}>
             <div className="space-y-2">
               <label className="text-[10px] font-bold text-outline uppercase tracking-widest px-2">
                 Identification / Name

@@ -1,4 +1,4 @@
-import { Gamepad, MoveRight, SquareTerminal } from "lucide-react";
+import { Gamepad, MoveRight } from "lucide-react";
 import Image from "next/image";
 
 export default function HeroSection() {
@@ -48,12 +48,6 @@ export default function HeroSection() {
             <div className="absolute inset-4 border border-primary/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
 
             <div className="absolute inset-8 rounded-full bg-surface-container-low border border-white/5 flex items-center justify-center overflow-hidden shadow-2xl">
-              {/* <span
-                className="material-symbols-outlined text-primary/40 text-[160px]"
-                style={{ fontVariationSettings: "'wght' 100" }}
-              >
-                account_circle
-              </span> */}
               <Image src="/avatar.jpeg" width={800} height={800} alt="avatar" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
             </div>
