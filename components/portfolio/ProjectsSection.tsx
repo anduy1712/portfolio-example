@@ -27,6 +27,7 @@ function ProjectCard({
     bolt: <Zap width={14} height={14} className="material-symbols-outlined" />,
     link: <Link2 width={14} height={14} className="material-symbols-outlined" />,
   };
+  const a = 0;
 
   return (
     <div className="group bg-surface-container-low rounded-xl overflow-hidden shadow-none border border-white/5 hover:translate-y-[-8px] transition-all duration-300">
